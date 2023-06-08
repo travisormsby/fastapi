@@ -19,6 +19,8 @@ async def read_item(item_id: int):
 # FastAPI evaluates matching routes in order
 # The following two routes need to be declared in this order
 # Otherwise "me" could be mistaken for the user_id
+# This only works if both have some method
+# If the first one is post and the second get, you get 405 error
 @app.get("/users/me")
 async def read_user_me():
     return {"user_id": "the current user"}
